@@ -1,0 +1,23 @@
+{% extends 'inventario/base.html' %} 
+{% block content %} 
+<div class="d-flex justify-content-between"> 
+<h2>Inventario de Productos</h2> 
+<a href="{% url 'crear_producto' %}" class="btn btn-success"> + Nuevo </a> 
+</div> 
+<table class="table mt-3"> 
+<thead> 
+<tr><th>Nombre</th><th>Precio</th><th>Stock</th></tr> 
+</thead> 
+<tbody> 
+            {% for p in productos %} 
+<tr> 
+<td>{{ p.nombre }}</td> 
+<td>${{ p.precio }}</td> 
+<td><span class="badge {% if p.stock < 5 %}bg-danger{% else %}bg
+success{% endif %}"> 
+                    {{ p.stock }}</span></td> 
+</tr> 
+            {% endfor %} 
+</tbody> 
+</table> 
+{% endblock %} 
