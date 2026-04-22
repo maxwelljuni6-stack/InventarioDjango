@@ -9,7 +9,7 @@ def lista_productos(request):
 return render(request, 'inventario/lista.html', {'productos': productos}) 
 @login_required  # Protección nativa (Pág. 9 )
 def crear_producto(request): 
-if request.method == 'POST': 
+ if request.method == 'POST': 
         form = ProductoForm(request.POST) 
 if form.is_valid(): 
             form.save() 
